@@ -1,0 +1,22 @@
+<template name="graphList">
+    <h1>Graphs</h1>
+
+    <div class="row-fluid">
+        {{#each graphs}}
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <a href="{{graphEditPath this}}">
+                                {{this.name}}
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        {{> graphImage this}}
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+</template>

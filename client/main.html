@@ -1,0 +1,15 @@
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    {{> header}}
+
+    <div class="container-fluid">
+        {{> meteorErrors}}
+        <div id="main" class="row-fluid">
+            {{#isolate}}
+                {{renderPage}}
+            {{/isolate}}
+        </div>
+    </div>
+</body>

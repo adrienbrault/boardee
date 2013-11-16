@@ -1,0 +1,8 @@
+{
+    "packages": {
+        "bootstrap-3": {},
+        "router": {},
+        "errors": {},
+        "accounts-ui-bootstrap-3": {}
+    }
+}
