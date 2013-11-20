@@ -8,12 +8,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Dashboard</a>
+                <a class="navbar-brand" href="{{pathFor 'home'}}">Dashboard</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{homePath}}">Home</a></li>
-                    <li><a href="{{dashboardListPath}}">Dashboards</a></li>
+                    <li><a href="{{pathFor 'home'}}">Graphs</a></li>
+                    <li><a href="{{pathFor 'dashboardList'}}">Dashboards</a></li>
                 </ul>
             </div>
         </div>

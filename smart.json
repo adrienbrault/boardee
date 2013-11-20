@@ -1,8 +1,9 @@
 {
-    "packages": {
-        "bootstrap-3": {},
-        "router": {},
-        "errors": {},
-        "accounts-ui-bootstrap-3": {}
-    }
+  "packages": {
+    "bootstrap-3": {},
+    "accounts-ui-bootstrap-3": {},
+    "collection2": {},
+    "handlebar-helpers": {},
+    "iron-router": {}
+  }
 }

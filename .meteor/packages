@@ -8,8 +8,9 @@ autopublish
 insecure
 preserve-inputs
 bootstrap-3
-router
-errors
 accounts-ui-bootstrap-3
 graphite
 less
+collection2
+handlebar-helpers
+iron-router

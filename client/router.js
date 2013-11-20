@@ -1,10 +1,25 @@
-Meteor.Router.add({
-    '/': {to: 'graphList', as: 'home'},
-    '/graphs/:_id': {
-        to: 'graphEdit',
-        and: function(_id) {
-            Session.set('currentGraphId', _id);
+Router.configure({
+    autoRender: false
+});
+
+Router.map(function () {
+    this.route('home', {
+        path: '/',
+        template: 'graphList'
+    });
+
+    this.route('graphAdd', {
+        path: '/graphs/add'
+    });
+
+    this.route('graphEdit', {
+        path: '/graphs/:_id',
+        before: function () {
+            Session.set('currentGraphId', this.params._id);
         }
-    },
-    '/dashboards': 'dashboardList'
+    });
+
+    this.route('dashboardList', {
+        path: '/dashboards'
+    });
 });
