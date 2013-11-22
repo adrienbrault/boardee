@@ -1,3 +1,35 @@
 <template name="dashboardList">
-    <h1>Dashboards</h1>
+    <div class="col-md-12">
+        <h1>Dashboards</h1>
+
+        <form class="dashboard-add">
+            <div class="input-group">
+                <input type="text" class="form-control" name="name"/>
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </span>
+            </div>
+        </form>
+
+        <hr>
+
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Graphs</th>
+            </tr>
+            {{#each dashboards}}
+                <tr>
+                    <td>
+                        <a href="{{pathFor 'dashboardView'}}">
+                            {{name}}
+                        </a>
+                    </td>
+                    <td>
+                        {{graphCount}}
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
 </template>

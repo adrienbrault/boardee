@@ -1,0 +1,16 @@
+<template name="graphBlock">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                <a href="{{pathFor 'graphEdit'}}">
+                    {{this.name}}
+                </a>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <a href="{{pathFor 'graphEdit'}}">
+                {{> graphImage this}}
+            </a>
+        </div>
+    </div>
+</template>

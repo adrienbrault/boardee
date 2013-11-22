@@ -22,4 +22,11 @@ Router.map(function () {
     this.route('dashboardList', {
         path: '/dashboards'
     });
+
+    this.route('dashboardView', {
+        path: '/dashboards/:_id',
+        before: function () {
+            Session.set('currentDashboardId', this.params._id);
+        }
+    });
 });
