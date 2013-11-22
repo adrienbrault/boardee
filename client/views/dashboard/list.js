@@ -13,6 +13,12 @@ Template.dashboardList.events({
 
             Router.go('dashboardView', {_id: result});
         });
+    },
+
+    'submit .dashboard-add-graph': function () {
+        event.preventDefault();
+
+
     }
 });
 

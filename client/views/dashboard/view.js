@@ -4,7 +4,11 @@ var currentDashboard = function () {
 
 
 Template.dashboardView.helpers({
-    dashboard: currentDashboard
+    dashboard: currentDashboard,
+
+    graphsNotInDashboard: function () {
+        return Graphs.find();
+    }
 });
 
 Template.dashboardView.events({

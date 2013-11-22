@@ -4,6 +4,10 @@ Dashboards = new Meteor.Collection2('dashboards', {
             type: String,
             min: 1,
             max: 100
+        },
+
+        'graphs': {
+            type: [String]
         }
     }
 });
