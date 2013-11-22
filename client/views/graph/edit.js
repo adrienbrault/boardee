@@ -20,6 +20,22 @@ Template.graphEditForm.helpers({
         return _.map(this.targets, function (target) {
             return {target: target};
         })
+    },
+    'parameters': function () {
+        return this.parameters ? this.parameters : {};
+    },
+
+    'hideLegendAsString': function () {
+        var value = this.hideLegend;
+        if (false === value) {
+            value = 'false';
+        } else if (true === value) {
+            value = 'true';
+        } else if (null === value) {
+            value = 'null';
+        }
+
+        return value;
     }
 });
 
@@ -32,16 +48,35 @@ Template.graphEditForm.events({
         $(event.target).closest('.target').remove();
     },
 
+    'click .reset-field': function (event) {
+        $(event.target).closest('.input-group').find('input').val('');
+    },
+
     'submit form': function (event) {
         event.preventDefault();
 
         var $form = $(event.target);
 
+        var hideLegend = $form.find('[name="hide_legend"]').val();
+        if ('null' === hideLegend) {
+            hideLegend = null;
+        } else {
+            hideLegend = 'true' === hideLegend;
+        }
+
+        var lineWidth = $form.find('[name="line_width"]').val();
+        lineWidth = lineWidth.length > 0 ? lineWidth : null;
+
         var graph = {
             name: $form.find('[name=name]').val(),
-            targets: $form.find('[name="target[]"]').map(function () {
-                return $(this).val();
-            }).toArray()
+            parameters: {
+                targets: $form.find('[name="target[]"]').map(function () {
+                    return $(this).val();
+                }).toArray(),
+                hideLegend: hideLegend,
+                uniqueLegend: $form.find('[name="unique_legend"]:checked()').size() > 0,
+                lineWidth: lineWidth
+            }
         };
 
         if (this._id) {
