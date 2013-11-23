@@ -4,6 +4,7 @@
     "accounts-ui-bootstrap-3": {},
     "collection2": {},
     "handlebar-helpers": {},
-    "iron-router": {}
+    "iron-router": {},
+    "jquery-ui": {}
   }
 }

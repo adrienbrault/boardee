@@ -7,7 +7,12 @@ Dashboards = new Meteor.Collection2('dashboards', {
         },
 
         'graphs': {
-            type: [String]
+            type: [Object],
+            optional: true
+        },
+
+        'graphs.$._id': {
+            type: String
         }
     }
 });

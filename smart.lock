@@ -6,7 +6,8 @@
       "accounts-ui-bootstrap-3": {},
       "collection2": {},
       "handlebar-helpers": {},
-      "iron-router": {}
+      "iron-router": {},
+      "jquery-ui": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -21,8 +22,8 @@
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
-        "tag": "v0.2.11",
-        "commit": "34ea61718c8826dfa9236222cec6c097bd41ae6b"
+        "tag": "v0.2.12",
+        "commit": "103b43bb534cedcb3f9a7283dc91e3c69df16511"
       },
       "handlebar-helpers": {
         "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
@@ -33,6 +34,11 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.6.1",
         "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+      },
+      "jquery-ui": {
+        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
+        "tag": "v1.9.2",
+        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",

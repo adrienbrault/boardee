@@ -12,13 +12,46 @@
 
             <form class="dashboard-add-graph">
                 <select name="graph" class="form-control">
-                    {{#each graphsNotInDashboard}}
-                        <option value="{{_id}}">{{name}}</option>
+                    {{#each graphsToAdd}}
+                        <option value="{{_id}}">
+                            {{name}}
+                        </option>
                     {{/each}}
                 </select>
 
                 <button type="submit" class="btn btn-primary">Add</button>
             </form>
         </div>
+
+        <div class="graphs">
+            {{#each graphs}}
+                <div class="col-md-3 dashboard-graph">
+                    {{> dashboardGraph graph}}
+                </div>
+            {{/each}}
+        </div>
     {{/with}}
+</template>
+
+<template name="dashboardGraph">
+    <div class="panel panel-default" data-graph-id="{{_id}}">
+        <div class="panel-heading graph-move">
+            <h3 class="panel-title">
+                <a href="{{pathFor 'graphEdit'}}">
+                    {{name}}
+                </a>
+
+                <button type="button" class="btn btn-danger btn-sm pull-right graph-remove">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </h3>
+
+            <span class="clearfix"></span>
+        </div>
+        <div class="panel-body">
+            <a href="{{pathFor 'graphEdit'}}">
+                {{> graphImage this}}
+            </a>
+        </div>
+    </div>
 </template>
