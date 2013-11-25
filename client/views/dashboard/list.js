@@ -28,6 +28,6 @@ Template.dashboardList.helpers({
     },
 
     graphCount: function () {
-        return 0;
+        return this.graphs.length;
     }
 });
