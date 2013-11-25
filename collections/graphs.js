@@ -127,8 +127,7 @@ Graphs = new Meteor.Collection2('graphs', {
             type: String,
             optional: true,
             allowedValues: ['left', 'right']
-        },
-
+        }
 
     }
 });

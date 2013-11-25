@@ -1,13 +1,19 @@
 <template name="graphEdit">
+    {{#if graph}}
     <div class="col-md-12">
-        {{#if graph}}
             <h1>{{graph.name}}</h1>
-
-            {{> graphImage graph}}
-
-            {{> graphEditForm graph}}
-        {{/if}}
     </div>
+
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+            {{> graphImage graph}}
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="col-md-12">
+            {{> graphEditForm graph}}
+    </div>
+    {{/if}}
 </template>
 
 <template name="graphEditForm">
@@ -42,7 +48,7 @@
                     <div class="form-group">
                         <label for="graph_hide_legend" class="control-label col-sm-2">Hide legend</label>
 
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <select class="form-control" id="graph_hide_legend" name="hide_legend">
                                 <option value="null" {{isSelected hideLegendAsString 'null'}}>Hide if too many</option>
                                 <option value="true" {{isSelected hideLegendAsString 'true'}}>Always hide</option>
@@ -54,7 +60,7 @@
                     <div class="form-group">
                         <label for="graph_unique_legend" class="control-label col-sm-2">Unique legend</label>
 
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <input type="checkbox" id="graph_unique_legend" value="true" name="unique_legend" {{isChecked uniqueLegend true}}>
                         </div>
                     </div>
@@ -62,7 +68,7 @@
                     <div class="form-group">
                         <label for="graph_line_width" class="control-label col-sm-2">Line width</label>
 
-                        <div class="col-sm-2">
+                        <div class="col-sm-3">
                             <div class="input-group">
                                 <input type="number" id="graph_line_width" class="form-control" value="{{lineWidth}}" name="line_width">
                                 <span class="input-group-btn">
@@ -71,6 +77,214 @@
                                     </button>
                                 </span>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_draw_null_as_zero" class="control-label col-sm-2">Draw null as zero</label>
+
+                        <div class="col-sm-3">
+                            <input type="checkbox" id="graph_draw_null_as_zero" value="true" name="draw_null_as_zero" {{isChecked drawNullAsZero true}}>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_line_mode" class="control-label col-sm-2">Line mode</label>
+
+                        <div class="col-sm-3">
+                            <select class="form-control" id="graph_line_mode" name="line_mode">
+                                <option value="slope" {{isSelected hideLegendAsString 'slope'}}>Slope</option>
+                                <option value="staircase" {{isSelected hideLegendAsString 'staircase'}}>Staircase</option>
+                                <option value="connected" {{isSelected hideLegendAsString 'connected'}}>Connected</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_graph_only" class="control-label col-sm-2">Graph only</label>
+
+                        <div class="col-sm-3">
+                            <input type="checkbox" id="graph_graph_only" value="true" name="graph_only" {{isChecked graphOnly true}}>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_hide_axes" class="control-label col-sm-2">Hide axes</label>
+
+                        <div class="col-sm-3">
+                            <input type="checkbox" id="graph_hide_axes" value="true" name="hide_axes" {{isChecked hideAxes true}}>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_hide_y_axis" class="control-label col-sm-2">Hide Y axis</label>
+
+                        <div class="col-sm-3">
+                            <input type="checkbox" id="graph_hide_y_axis" value="true" name="hide_y_axis" {{isChecked hideYAxis true}}>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_hide_grid" class="control-label col-sm-2">Hide grid</label>
+
+                        <div class="col-sm-3">
+                            <input type="checkbox" id="graph_hide_grid" value="true" name="hide_grid" {{isChecked hideGrid true}}>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_area_mode" class="control-label col-sm-2">Area mode</label>
+
+                        <div class="col-sm-3">
+                            <select class="form-control" id="graph_area_mode" name="area_mode">
+                                <option value="none" {{isSelected areaMode 'none'}}>None</option>
+                                <option value="first" {{isSelected areaMode 'first'}}>First</option>
+                                <option value="all" {{isSelected areaMode 'all'}}>All</option>
+                                <option value="stacked" {{isSelected areaMode 'stacked'}}>Stacked</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_area_alpha" class="control-label col-sm-2">Area alpha</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="graph_area_alpha" class="form-control" value="{{areaAlpha}}" name="area_alpha">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default reset-field" type="button">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_y_min" class="control-label col-sm-2">Y min</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="graph_y_min" class="form-control" value="{{yMin}}" name="y_min">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default reset-field" type="button">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_y_max" class="control-label col-sm-2">Y max</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="graph_y_max" class="form-control" value="{{yMin}}" name="y_max">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default reset-field" type="button">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_y_min_left" class="control-label col-sm-2">Y min left</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="graph_y_min_left" class="form-control" value="{{yMinLeft}}" name="y_min_left">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default reset-field" type="button">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_y_max_left" class="control-label col-sm-2">Y max left</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="graph_y_max_left" class="form-control" value="{{yMaxLeft}}" name="y_max_left">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default reset-field" type="button">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_y_min_right" class="control-label col-sm-2">Y min right</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="graph_y_min_right" class="form-control" value="{{yMinRight}}" name="y_min_right">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default reset-field" type="button">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_y_max_right" class="control-label col-sm-2">Y max right</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="graph_y_max_right" class="form-control" value="{{yMaxRight}}" name="y_max_right">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default reset-field" type="button">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_log_base" class="control-label col-sm-2">Log base</label>
+
+                        <div class="col-sm-3">
+                            <div class="input-group">
+                                <input type="text" id="graph_log_base" class="form-control" value="{{logBase}}" name="log_base">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default reset-field" type="button">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_y_unit_system" class="control-label col-sm-2">Y unit system</label>
+
+                        <div class="col-sm-3">
+                            <select class="form-control" id="graph_y_unit_system" name="y_unit_system">
+                                <option value="si" {{isSelected yUnitSystem 'si'}}>SI</option>
+                                <option value="binary" {{isSelected yUnitSystem 'binary'}}>Binary</option>
+                                <option value="none" {{isSelected yUnitSystem 'none'}}>None</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="graph_y_axis_side" class="control-label col-sm-2">Y axis side</label>
+
+                        <div class="col-sm-3">
+                            <select class="form-control" id="graph_y_axis_side" name="y_axis_side">
+                                <option value="left" {{isSelected yAxisSide 'left'}}>Left</option>
+                                <option value="right" {{isSelected yAxisSide 'right'}}>Right</option>
+                            </select>
                         </div>
                     </div>
                 {{/with}}

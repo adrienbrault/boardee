@@ -36,6 +36,10 @@ Template.graphEditForm.helpers({
         }
 
         return value;
+    },
+
+    'areaAlpha': function () {
+        return null === this.areaAlpha ? '' : this.areaAlpha;
     }
 });
 
@@ -64,8 +68,9 @@ Template.graphEditForm.events({
             hideLegend = 'true' === hideLegend;
         }
 
-        var lineWidth = $form.find('[name="line_width"]').val();
-        lineWidth = lineWidth.length > 0 ? lineWidth : null;
+        var filterEmptyString = function (string) {
+            return string.length > 0 ? string : null;
+        }
 
         var graph = {
             name: $form.find('[name=name]').val(),
@@ -75,9 +80,34 @@ Template.graphEditForm.events({
                 }).toArray(),
                 hideLegend: hideLegend,
                 uniqueLegend: $form.find('[name="unique_legend"]:checked()').size() > 0,
-                lineWidth: lineWidth
+                lineWidth: filterEmptyString($form.find('[name="line_width"]').val()),
+                drawNullAsZero: $form.find('[name="draw_null_as_zero"]:checked()').size() > 0,
+                lineMode: $form.find('[name="line_mode"]').val(),
+                graphOnly: $form.find('[name="graph_only"]:checked()').size() > 0,
+                hideAxes: $form.find('[name="hide_axes"]:checked()').size() > 0,
+                hideYAxis: $form.find('[name="hide_y_axis"]:checked()').size() > 0,
+                hideGrid: $form.find('[name="hide_grid"]:checked()').size() > 0,
+                areaMode: $form.find('[name="area_mode"]').val(),
+                areaAlpha: filterEmptyString($form.find('[name="area_alpha"]').val()),
+                yMin: filterEmptyString($form.find('[name="y_min"]').val()),
+                yMax: filterEmptyString($form.find('[name="y_max"]').val()),
+                yMinLeft: filterEmptyString($form.find('[name="y_min_left"]').val()),
+                yMaxLeft: filterEmptyString($form.find('[name="y_max_left"]').val()),
+                yMinRight: filterEmptyString($form.find('[name="y_min_right"]').val()),
+                yMaxRight: filterEmptyString($form.find('[name="y_max_right"]').val()),
+                logBase: filterEmptyString($form.find('[name="log_base"]').val()),
+                yUnitSystem: $form.find('[name="y_unit_system"]').val(),
+                yAxisSide: $form.find('[name="y_axis_side"]').val()
             }
         };
+
+        var newParameters = {};
+        _.each(graph.parameters, function (value, key) {
+            if (null !== value) {
+                newParameters[key] = value;
+            }
+        });
+        graph.parameters = newParameters;
 
         if (this._id) {
             Graphs.update(this._id, {$set: graph});
