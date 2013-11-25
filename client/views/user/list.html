@@ -1,0 +1,40 @@
+<template name="userList">
+    <div class="col-md-12">
+        <h1>Users</h1>
+
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+            {{#each users}}
+                <tr data-user-id="{{_id}}">
+                    <td>
+                        {{email}}
+                    </td>
+                    <td>
+                        {{role}}
+                    </td>
+                    <td>
+                        {{#unless isRole 'admin'}}
+                            <button type="button" class="btn btn-primary user-edit-role" data-user-role="admin">
+                                Make admin
+                            </button>
+                        {{/unless}}
+                        {{#unless isRole 'user'}}
+                            <button type="button" class="btn btn-info user-edit-role" data-user-role="user">
+                                Make user
+                            </button>
+                        {{/unless}}
+                        {{#unless isRole 'guest'}}
+                            <button type="button" class="btn btn-default user-edit-role" data-user-role="guest">
+                                Make guest
+                            </button>
+                        {{/unless}}
+                    </td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+</template>

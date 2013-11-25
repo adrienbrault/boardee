@@ -1,5 +1,6 @@
 Router.configure({
-    autoRender: false
+    autoRender: false,
+    notFoundTemplate: '404'
 });
 
 Router.map(function () {
@@ -29,4 +30,26 @@ Router.map(function () {
             Session.set('currentDashboardId', this.params._id);
         }
     });
+
+    this.route('userList', {
+        path: '/users',
+        before: function () {
+            if (!isAdmin()) {
+                this.render('users403');
+                this.stop();
+            }
+        }
+    });
+});
+
+Router.addHook('before', function () {
+    if (!Meteor.user()) {
+        this.render('401');
+        this.stop();
+    }
+
+    if (!isUser()) {
+        this.render('403');
+        this.stop();
+    }
 });

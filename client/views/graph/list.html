@@ -2,9 +2,11 @@
     <div class="col-md-12">
         <h1>Graphs</h1>
 
-        <a href="{{pathFor 'graphAdd'}}" class="btn btn-primary">
-            Add
-        </a>
+        {{#if isAdmin}}
+            <a href="{{pathFor 'graphAdd'}}" class="btn btn-primary">
+                Add
+            </a>
+        {{/if}}
     </div>
 
     {{#each graphs}}

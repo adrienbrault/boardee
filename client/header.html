@@ -11,9 +11,25 @@
                 <a class="navbar-brand" href="{{pathFor 'home'}}">Dashboard</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="{{pathFor 'home'}}">Graphs</a></li>
-                    <li><a href="{{pathFor 'dashboardList'}}">Dashboards</a></li>
+                {{#if isUser}}
+                    <ul class="nav navbar-nav">
+                        <li class="{{#if isRoute 'home'}}active{{/if}}">
+                            <a href="{{pathFor 'home'}}">Graphs</a>
+                        </li>
+                        <li class="{{#if isRoute 'dashboardList'}}active{{/if}}">
+                            <a href="{{pathFor 'dashboardList'}}">Dashboards</a>
+                        </li>
+
+                        {{#if isAdmin}}
+                            <li class="{{#if isRoute 'userList'}}active{{/if}}">
+                                <a href="{{pathFor 'userList'}}">Users</a>
+                            </li>
+                        {{/if}}
+                    </ul>
+                {{/if}}
+
+                <ul class="nav navbar-nav pull-right">
+                    {{loginButtons}}
                 </ul>
             </div>
         </div>

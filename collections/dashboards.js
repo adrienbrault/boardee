@@ -16,3 +16,10 @@ Dashboards = new Meteor.Collection2('dashboards', {
         }
     }
 });
+
+Dashboards.allow({
+    insert: collectionAllowIfAdmin,
+    update: collectionAllowIfAdmin,
+    remove: collectionAllowIfAdmin,
+    fetch: []
+});

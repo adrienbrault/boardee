@@ -131,3 +131,10 @@ Graphs = new Meteor.Collection2('graphs', {
 
     }
 });
+
+Graphs.allow({
+    insert: collectionAllowIfAdmin,
+    update: collectionAllowIfAdmin,
+    remove: collectionAllowIfAdmin,
+    fetch: []
+});

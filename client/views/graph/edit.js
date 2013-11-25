@@ -114,6 +114,7 @@ Template.graphEditForm.events({
         } else {
             Graphs.insert(graph, function (error, result) {
                 if (error) {
+                    console.log(error.message);
 
                     return;
                 }

@@ -4,27 +4,31 @@
             <h1>
                 {{name}}
 
-                <form class="dashboard-remove" style="display: inline;">
-                    <button type="submit" class="btn btn-danger">
-                        <span class="glyphicon glyphicon-remove"></span>
-                        Remove
-                    </button>
-                </form>
+                {{#if isAdmin}}
+                    <form class="dashboard-remove" style="display: inline;">
+                        <button type="submit" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span>
+                            Remove
+                        </button>
+                    </form>
+                {{/if}}
             </h1>
 
-            <h2>Add graph</h2>
+            {{#if isAdmin}}
+                <h2>Add graph</h2>
 
-            <form class="dashboard-add-graph">
-                <select name="graph" class="form-control">
-                    {{#each graphsToAdd}}
-                        <option value="{{_id}}">
-                            {{name}}
-                        </option>
-                    {{/each}}
-                </select>
+                <form class="dashboard-add-graph">
+                    <select name="graph" class="form-control">
+                        {{#each graphsToAdd}}
+                            <option value="{{_id}}">
+                                {{name}}
+                            </option>
+                        {{/each}}
+                    </select>
 
-                <button type="submit" class="btn btn-primary">Add</button>
-            </form>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            {{/if}}
 
             <h2>Graphs</h2>
         </div>
@@ -41,15 +45,17 @@
 
 <template name="dashboardGraph">
     <div class="panel panel-default" data-graph-id="{{_id}}">
-        <div class="panel-heading graph-move">
+        <div class="panel-heading {{#if isAdmin}}graph-move{{/if}}">
             <h3 class="panel-title">
                 <a href="{{pathFor 'graphEdit'}}">
                     {{name}}
                 </a>
 
-                <button type="button" class="btn btn-danger btn-sm pull-right graph-remove">
-                    <span class="glyphicon glyphicon-remove"></span>
-                </button>
+                {{#if isAdmin}}
+                    <button type="button" class="btn btn-danger btn-sm pull-right graph-remove">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                {{/if}}
             </h3>
 
             <span class="clearfix"></span>

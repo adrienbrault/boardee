@@ -1,1 +1,0 @@
-Graphite.config.host = '/render';

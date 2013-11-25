@@ -4,14 +4,13 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
-insecure
 preserve-inputs
 bootstrap-3
-accounts-ui-bootstrap-3
 graphite
 less
 collection2
 handlebar-helpers
 iron-router
 jquery-ui
+accounts-password
+accounts-ui-bootstrap-3
