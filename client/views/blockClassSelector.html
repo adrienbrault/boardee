@@ -1,0 +1,25 @@
+<template name="blockClassSelector">
+    <div>
+        <h4 style="display: inline-block;">
+            Graphs columns
+        </h4>
+
+        <div class="btn-group dashboard-columns-count">
+            <button type="button" class="btn btn-default {{#if $eq blockClass 'col-md-2'}}active{{/if}}" data-block-class="col-md-2">
+                6
+            </button>
+            <button type="button" class="btn btn-default {{#if $eq blockClass 'col-md-3'}}active{{/if}}" data-block-class="col-md-3">
+                4
+            </button>
+            <button type="button" class="btn btn-default {{#if $eq blockClass 'col-md-4'}}active{{/if}}" data-block-class="col-md-4">
+                3
+            </button>
+            <button type="button" class="btn btn-default {{#if $eq blockClass 'col-md-6'}}active{{/if}}" data-block-class="col-md-6">
+                2
+            </button>
+            <button type="button" class="btn btn-default {{#if $eq blockClass 'col-md-12'}}active{{/if}}" data-block-class="col-md-12">
+                1
+            </button>
+        </div>
+    </div>
+</template>

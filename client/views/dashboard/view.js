@@ -31,10 +31,6 @@ Template.dashboardView.helpers({
         return Graphs.find({
             _id: {$nin: currentDashboardGraphdsIds()}
         });
-    },
-
-    blockClass: function () {
-        return Session.get('graphBlockClass');
     }
 });
 

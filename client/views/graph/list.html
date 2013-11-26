@@ -7,10 +7,12 @@
                 Add
             </a>
         {{/if}}
+
+        {{> blockClassSelector}}
     </div>
 
     {{#each graphs}}
-        <div class="col-md-3">
+        <div class="{{blockClass}}">
             {{> graphBlock}}
         </div>
     {{/each}}
