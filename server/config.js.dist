@@ -1,3 +1,4 @@
 Config = {
-    graphite_host: '/render'
+    graphite_host: '/render',
+    graphite_timezone: 'UTC'
 };

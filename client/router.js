@@ -43,6 +43,12 @@ Router.map(function () {
 });
 
 Router.addHook('before', function () {
+    Session.set('graphDateRange', {
+        type: 'relative',
+        from: '-1d',
+        until: '-0d'
+    });
+
     if (!Meteor.user()) {
         this.render('401');
         return this.stop();

@@ -5,6 +5,7 @@
     "handlebar-helpers": {},
     "iron-router": {},
     "jquery-ui": {},
-    "accounts-ui-bootstrap-3": {}
+    "accounts-ui-bootstrap-3": {},
+    "moment": {}
   }
 }
