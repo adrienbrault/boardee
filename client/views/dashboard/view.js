@@ -10,10 +10,6 @@ var currentDashboardGraphdsIds = function () {
     return _.pluck(currentDashboard().graphs, '_id');
 }
 
-Meteor.startup(function () {
-    Session.set('graphBlockClass', 'col-md-3')
-});
-
 Template.dashboardView.helpers({
     dashboard: currentDashboard,
 
@@ -39,7 +35,7 @@ Template.dashboardView.rendered = function () {
     $graphs.sortable({
         handle: '.graph-move',
         tolerance: 'pointer',
-        placeholder: 'dashboard-graph dashboard-graph-placeholder ' + Session.get('graphBlockClass')
+        placeholder: 'dashboard-graph dashboard-graph-placeholder ' + blockClass()
     });
     $graphs.on('sortstop', function () { // for some reason using .event() doesn't work with this event
         var graphs = currentDashboard().graphs;

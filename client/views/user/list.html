@@ -8,7 +8,6 @@
             <tr>
                 <th>Name</th>
                 <th>Role</th>
-                <th>Action</th>
             </tr>
             {{#each users}}
                 <tr data-user-id="{{_id}}">
@@ -16,24 +15,17 @@
                         {{email}}
                     </td>
                     <td>
-                        {{role}}
-                    </td>
-                    <td>
-                        {{#unless isRole 'admin'}}
-                            <button type="button" class="btn btn-primary user-edit-role" data-user-role="admin">
-                                Make admin
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary user-edit-role {{#if isRole 'admin'}}active{{/if}}" data-user-role="admin">
+                                Admin
                             </button>
-                        {{/unless}}
-                        {{#unless isRole 'user'}}
-                            <button type="button" class="btn btn-info user-edit-role" data-user-role="user">
-                                Make user
+                            <button type="button" class="btn btn-primary user-edit-role {{#if isRole 'user'}}active{{/if}}" data-user-role="user">
+                                User
                             </button>
-                        {{/unless}}
-                        {{#unless isRole 'guest'}}
-                            <button type="button" class="btn btn-default user-edit-role" data-user-role="guest">
-                                Make guest
+                            <button type="button" class="btn btn-primary user-edit-role {{#if isRole 'guest'}}active{{/if}}" data-user-role="guest">
+                                Guest
                             </button>
-                        {{/unless}}
+                        </div>
                     </td>
                 </tr>
             {{/each}}

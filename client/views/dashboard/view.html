@@ -53,24 +53,21 @@
 </template>
 
 <template name="dashboardGraph">
-    <div class="panel panel-default" data-graph-id="{{_id}}">
-        <div class="panel-heading {{#if isAdmin}}graph-move{{/if}}">
-            <h3 class="panel-title">
-                <a href="{{pathFor 'graphEdit'}}">
-                    {{name}}
-                </a>
-
+    <div class="thumbnail graph-move" data-graph-id="{{_id}}">
+        <div class="caption">
+            <h4 style="margin: 0;">
                 {{#if isAdmin}}
-                    <button type="button" class="btn btn-danger btn-sm pull-right graph-remove">
+                    <button type="button" class="btn btn-danger btn-xs pull-right graph-remove">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
                 {{/if}}
-            </h3>
 
-            <span class="clearfix"></span>
+                <a href="{{pathFor 'graphEdit'}}" class="graph-title">
+                    {{name}}
+                </a>
+            </h4>
         </div>
-        <a href="{{pathFor 'graphEdit'}}">
-            {{> graphImage this}}
-        </a>
+
+        {{> graphImage this}}
     </div>
 </template>

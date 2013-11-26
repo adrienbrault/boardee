@@ -30,7 +30,11 @@
 
                         {{#if isAdmin}}
                             <li class="{{#if isRoute 'userList'}}active{{/if}}">
-                                <a href="{{pathFor 'userList'}}">Users</a>
+                                <a href="{{pathFor 'userList'}}">
+                                    Users
+
+                                    <span class="badge">{{userCount}}</span>
+                                </a>
                             </li>
                         {{/if}}
                     </ul>

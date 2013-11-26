@@ -5,5 +5,9 @@ Template.header.helpers({
 
     dashboardCount: function () {
         return Dashboards.find().count();
+    },
+
+    userCount: function () {
+        return Meteor.users.find().count();
     }
 });

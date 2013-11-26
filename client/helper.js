@@ -11,6 +11,4 @@ Handlebars.registerHelper('isRoute', function (route) {
     return current.route.name == route;
 });
 
-Handlebars.registerHelper('blockClass', function () {
-    return Session.get('graphBlockClass');
-});
+Handlebars.registerHelper('blockClass', blockClass);
