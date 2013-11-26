@@ -1,6 +1,9 @@
 Router.configure({
-    autoRender: false,
-    notFoundTemplate: '404'
+    notFoundTemplate: '404',
+    layoutTemplate: 'layout',
+    yieldTemplates: {
+        'header': {to: 'header'}
+    }
 });
 
 Router.map(function () {
@@ -22,6 +25,16 @@ Router.map(function () {
 
     this.route('dashboardList', {
         path: '/dashboards'
+    });
+
+    this.route('dashboardViewFullScreen', {
+        path: '/dashboards/:_id/fullscreen',
+        before: function () {
+            Session.set('currentDashboardId', this.params._id);
+        },
+        yieldTemplates: {
+            '': {to: 'header'}
+        }
     });
 
     this.route('dashboardView', {

@@ -1,15 +1,15 @@
-<head>
-    <title>Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    {{> header}}
+<template name="layout">
+    <head>
+        <title>Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        {{yield 'header'}}
 
-    <div class="container-fluid">
-        <div id="main" class="row-fluid">
-            {{#isolate}}
-                {{renderRouter}}
-            {{/isolate}}
+        <div class="container-fluid">
+            <div id="main" class="row-fluid">
+                {{yield}}
+            </div>
         </div>
-    </div>
-</body>
+    </body>
+</template>

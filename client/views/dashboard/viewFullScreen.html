@@ -1,0 +1,46 @@
+<template name="dashboardViewFullScreen">
+    {{#with dashboard}}
+        <div class="col-md-12">
+            <h1>
+                {{name}}
+
+                <button type="button" class="btn btn-default pull-right" data-toggle="collapse" data-target="#options">
+                    Options
+                </button>
+
+                <a href="{{pathFor 'dashboardView'}}" class="btn btn-default pull-right" style="margin-right: 15px;">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
+                    Back
+                </a>
+            </h1>
+
+            <div id="options" class="collapse">
+                {{> dateRangeSelector}}
+                {{> autoRefresh}}
+                {{> blockClassSelector}}
+            </div>
+        </div>
+
+        <div class="graphs">
+            {{#each graphs}}
+                <div class="{{blockClass}} dashboard-graph">
+                    {{> dashboardGraphFullScreen graph}}
+                </div>
+            {{/each}}
+        </div>
+    {{/with}}
+</template>
+
+<template name="dashboardGraphFullScreen">
+    <div class="thumbnail">
+        <div class="caption">
+            <h4 style="margin: 0;">
+                <a href="{{pathFor 'graphEdit'}}" class="graph-title">
+                    {{name}}
+                </a>
+            </h4>
+        </div>
+
+        {{> graphImage this}}
+    </div>
+</template>

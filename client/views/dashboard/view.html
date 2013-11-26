@@ -5,6 +5,11 @@
                 <h1>
                     {{name}}
 
+                    <a href="{{pathFor 'dashboardViewFullScreen'}}" class="btn btn-info">
+                        <i class="glyphicon glyphicon-fullscreen"></i>
+                        Full Screen
+                    </a>
+
                     {{#if isAdmin}}
                         <form class="dashboard-remove" style="display: inline;">
                             <button type="submit" class="btn btn-danger">
