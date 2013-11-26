@@ -1,7 +1,15 @@
 <template name="graphEdit">
     {{#if graph}}
         <div class="col-md-12">
-            <h1>{{graph.name}}</h1>
+            <h1>
+                {{graph.name}}
+
+                {{#if isAdmin}}
+                    <button type="button" class="btn btn-danger graph-remove">
+                        Remove
+                    </button>
+                {{/if}}
+            </h1>
         </div>
 
         <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">

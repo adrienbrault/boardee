@@ -9,6 +9,22 @@ Template.graphEdit.helpers({
     }
 });
 
+Template.graphEdit.events({
+    'click .graph-remove': function (event) {
+        event.preventDefault();
+
+        Meteor.call('graphDelete', currentGraph()._id, function (error, result) {
+            if (error) {
+                console.log(error);
+
+                return;
+            }
+
+            Router.go('home');
+        });
+    }
+});
+
 Template.graphEditForm.rendered = function () {
     if ($('#graph_targets *').size() < 1) {
         $('#graph_targets').prepend($('#target_control').html());
