@@ -1,3 +1,5 @@
+graphiteHostDependency = new Deps.Dependency();
+
 Meteor.startup(function () {
     Deps.autorun(function () {
         var config = Configs.findOne();
@@ -5,6 +7,7 @@ Meteor.startup(function () {
             return;
         }
 
+        graphiteHostDependency.changed();
         Graphite.config.host = config.graphite_host;
     });
 });

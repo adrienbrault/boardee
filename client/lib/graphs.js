@@ -44,6 +44,8 @@ graphUrl = function (graph, options) {
         options.cacheTimeout = Session.get('graphAutoRefreshInterval') * 0.8;
     }
 
+    graphiteHostDependency.depend();
+
     _.each(options, function (value, option) {
         if (value === null) {
             delete options[option];
