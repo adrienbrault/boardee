@@ -48,6 +48,7 @@ Router.addHook('before', function () {
         from: '-1d',
         until: '-0d'
     });
+    Session.set('graphAutoRefreshEnabled', false);
 
     if (!Meteor.user()) {
         this.render('401');

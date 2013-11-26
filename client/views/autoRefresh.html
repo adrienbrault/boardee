@@ -1,0 +1,10 @@
+<template name="autoRefresh">
+    <form>
+        <div class="input-group">
+        <span class="input-group-btn btn-group">
+            <button class="btn btn-default {{#if enabled}}active{{/if}}" type="button">Auto refresh</button>
+        </span>
+            <input type="number" class="form-control" name="autorefresh_interval" value="{{interval}}"/>
+        </div>
+    </form>
+</template>

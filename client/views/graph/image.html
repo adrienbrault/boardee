@@ -1,8 +1,10 @@
 <template name="graphImage">
     <div class="graph-image">
-        <object data="{{url}}"
-                type="image/svg+xml">
-            {{name}}
-        </object>
+        {{#isolate}}
+            <object data="{{url}}"
+                    type="image/svg+xml">
+                {{name}}
+            </object>
+        {{/isolate}}
     </div>
 </template>
