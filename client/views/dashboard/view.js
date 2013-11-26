@@ -80,6 +80,10 @@ Template.dashboardView.events({
 
         var graphId = $(event.target).find('[name=graph]').val();
 
+        if (!graphId) {
+            return;
+        }
+
         Dashboards.update(currentDashboard()._id, {
             $push: {
                 'graphs': {
