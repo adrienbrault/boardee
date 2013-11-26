@@ -14,10 +14,18 @@
                 {{#if isUser}}
                     <ul class="nav navbar-nav">
                         <li class="{{#if isRoute 'home'}}active{{/if}}">
-                            <a href="{{pathFor 'home'}}">Graphs</a>
+                            <a href="{{pathFor 'home'}}">
+                                Graphs
+
+                                <span class="badge">{{graphCount}}</span>
+                            </a>
                         </li>
                         <li class="{{#if isRoute 'dashboardList'}}active{{/if}}">
-                            <a href="{{pathFor 'dashboardList'}}">Dashboards</a>
+                            <a href="{{pathFor 'dashboardList'}}">
+                                Dashboards
+
+                                <span class="badge">{{dashboardCount}}</span>
+                            </a>
                         </li>
 
                         {{#if isAdmin}}

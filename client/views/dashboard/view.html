@@ -1,18 +1,20 @@
 <template name="dashboardView">
     {{#with dashboard}}
         <div class="col-md-12">
-            <h1>
-                {{name}}
+            <div class="page-header">
+                <h1>
+                    {{name}}
 
-                {{#if isAdmin}}
-                    <form class="dashboard-remove" style="display: inline;">
-                        <button type="submit" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-remove"></span>
-                            Remove
-                        </button>
-                    </form>
-                {{/if}}
-            </h1>
+                    {{#if isAdmin}}
+                        <form class="dashboard-remove" style="display: inline;">
+                            <button type="submit" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                Remove
+                            </button>
+                        </form>
+                    {{/if}}
+                </h1>
+            </div>
 
             {{#if isAdmin}}
                 <h2>Add graph</h2>
@@ -67,10 +69,8 @@
 
             <span class="clearfix"></span>
         </div>
-        <div class="panel-body">
-            <a href="{{pathFor 'graphEdit'}}">
-                {{> graphImage this}}
-            </a>
-        </div>
+        <a href="{{pathFor 'graphEdit'}}">
+            {{> graphImage this}}
+        </a>
     </div>
 </template>
