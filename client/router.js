@@ -45,11 +45,11 @@ Router.map(function () {
 Router.addHook('before', function () {
     if (!Meteor.user()) {
         this.render('401');
-        this.stop();
+        return this.stop();
     }
 
     if (!isUser()) {
         this.render('403');
-        this.stop();
+        return this.stop();
     }
 });
