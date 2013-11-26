@@ -3,7 +3,9 @@ Template.graphImage.helpers({
         return graphUrl(this, {
             format: 'svg',
             bgcolor: 'white',
-            fgcolor: 'black'
+            fgcolor: 'black',
+            majorGridLineColor: 'gray',
+            minorGridLineColor: 'gray'
         });
     }
 });
