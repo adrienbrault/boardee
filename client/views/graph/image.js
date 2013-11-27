@@ -3,6 +3,8 @@ Template.graphImage.helpers({
         return graphUrl(this, {
             format: 'svg',
 
+            minXStep: 0,
+
             // white background template
             bgcolor: 'white',
             fgcolor: 'black',
