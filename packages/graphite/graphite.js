@@ -6,7 +6,7 @@ window.Graphite.config = {
     host: "/render"
 };
 graphiteFunction = function(ic) {
-    var config = window.Graphite.config,
+    var config = _.clone(window.Graphite.config),
         parameter_list = [
             "host",
             "targets",

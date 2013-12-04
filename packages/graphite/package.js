@@ -4,5 +4,6 @@ Package.describe({
 });
 
 Package.on_use(function (api, where) {
+    api.use('underscore', ['client']);
     api.add_files('graphite.js', 'client');
 });
