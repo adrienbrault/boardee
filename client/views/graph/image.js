@@ -1,11 +1,18 @@
 var isRetinaDevice = window.devicePixelRatio >= 2;
 
+var scale = 1.3;
+var height = 250 * scale;
+var width = 330 * scale;
+
 Template.graphImage.helpers({
     url: function () {
         return graphUrl(this, {
             format: 'svg',
 
             minXStep: 0,
+
+            width: width,
+            height: height,
 
             // white background template
             bgcolor: 'white',
