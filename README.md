@@ -1,5 +1,5 @@
-Bordee
-======
+Boardee
+=======
 
 Meteor based dashboard to render graphs through the graphite render api.
 
